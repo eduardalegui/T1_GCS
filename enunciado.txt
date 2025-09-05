@@ -1,0 +1,67 @@
+REQUISITOS GERAIS:
+    1. Deseja-se um sistema para gerenciar eventos.
+    2. O sistema deverá ser implementado em Java Console /ou/ Web Puro (apenas
+HTML+CSS+Javascript). Não utilizar frameworks ou outras dependências. A ideia é ter a base de
+código o mais simples possível. Cuidar para que todos os membros do time conheçam a(s)
+linguagem(s) escolhida(s).
+    3. Não implementar um mecanismo de persistência de dados. O sistema deverá manter dados
+apenas em memória durante a execução.
+    4. Não implementar um mecanismo de login.
+    5. O sistema deverá iniciar com dados já preenchidos (em bom número e de boa qualidade), de
+forma a facilitar os testes.
+
+
+DETALHAMENTO:
+    Precisa-se de um sistema para gerenciar eventos, ingressos e participantes.
+
+    Para cada evento, deseja-se armazenar o nome do evento, a data de realização, o valor do ingresso e o
+nome do responsável. Além disso, ao criar um evento, deve-se especificar quantos ingressos estarão
+disponíveis, reservando 15% para casos especiais. Os ingressos deverão ter uma numeração específica,
+detalhada no item a seguir.
+
+    Cada ingresso vendido deve ser nominal, ou seja, deverá ficar associado a um participante e não poderá ser
+alterado. Para cada participante deverá ser armazenado o nome completo e o CPF.
+
+
+FUNCIONALIDADES DESEJADAS:
+    1. O sistema será operado apenas pelo operador principal. Não é necessário login e senha.
+
+    2. O sistema deverá permitir ao operador cadastrar novos eventos. Deve-se validar que a data é futura
+(não se pode cadastrar um evento no dia atual ou no passado). Todos os campos são obrigatórios.
+        a- Quando um evento for cadastrado, o sistema deverá atribuir um código único ao evento;
+        b- Ao cadastrar um evento, o usuário deverá informar quantos ingressos estarão disponíveis.
+            i. O sistema deverá reservar 15% dos ingressos disponíveis para casos especiais (ex.
+            cadeirantes, deficientes físicos e outras situações);
+            ii. Os ingressos deverão ser identificados como {cod-evento}{seq-ingresso}{E}. Por exemplo,
+            para um evento cujo código único é 121, com 100 lugares, os ingressos deverão ser
+            identificados como 121-001; 121-002; 121-003 ... até 121-074 e mais os 15% especiais,
+            identificados como 121-075E, 121-076E ... até 121-100E.
+
+    3. O sistema deverá permitir ao operador listar todos os eventos.
+
+    4. O sistema deverá permitir ao operador procurar por um evento específico (por parte do nome).
+
+    5. Depois que o operador abrir os detalhes de um evento, poderá emitir ingressos (dentro do limite
+especificado na criação do evento).
+        a- O operador deverá indicar o tipo de ingresso (normal ou especial);
+        b- Os ingressos deverão ser emitidos sequencialmente (1, 2, 3 etc e respeitando a quantidade de
+    ingressos normais e especiais);
+        c- Não poderão ser emitidos mais ingressos do que o limite do evento.
+
+    6. O sistema deverá permitir ao operador (no dia do evento) registrar a entrada de cada participante
+mediante a apresentação do ingresso. Para cada participante, o sistema deverá registrar a presença,
+de modo que posteriormente possamos saber quem esteve e quem não esteve no evento (o
+ingresso foi emitido, mas o participante não compareceu).
+
+    7. O sistema deverá permitir ao operador consultar os detalhes de um evento específico, incluindo:
+        a- Número total de ingressos disponíveis (lotação máxima);
+        b- Número de ingressos de cada tipo (normal e especial – 15%);
+        c- Número de ingressos vendidos de cada tipo e respectivos percentuais;
+        d- Percentual de ocupação total do evento (total de vendidos vs lotação máxima).
+
+    8. O sistema deverá permitir ao operador gerar um relatório geral por mês:
+        a- Escolher mês e ano;
+        b- Mostar cada evento naquele mês e naquele ano, bem como estatísticas de cada evento.
+
+    9. Duas funcionalidades a mais, à escolha do grupo.
+        a- Detalhar as funcionalidades no relatório.
