@@ -1,0 +1,37 @@
+1
+Show de Rock
+Um show de rock imperdível
+75
+120
+1
+Show da Banda XYZ
+Show de rock com a banda XYZ
+50
+100
+3
+1
+false
+Carlos Santos
+111.111.111-11
+30
+3
+1
+true
+Ana Paula
+222.222.222-22
+25
+3
+2
+false
+Mariana Lima
+444.444.444-44
+28
+5
+ING-1-1
+111.111.111-11
+4
+ING-1-2
+6
+111.111.111-11
+7
+0
