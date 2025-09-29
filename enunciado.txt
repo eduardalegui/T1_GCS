@@ -34,8 +34,8 @@ FUNCIONALIDADES DESEJADAS:
             cadeirantes, deficientes físicos e outras situações);
             ii. Os ingressos deverão ser identificados como {cod-evento}{seq-ingresso}{E}. Por exemplo,
             para um evento cujo código único é 121, com 100 lugares, os ingressos deverão ser
-            identificados como 121-001; 121-002; 121-003 ... até 121-074 e mais os 15% especiais,
-            identificados como 121-075E, 121-076E ... até 121-100E.
+            identificados como 121-001; 121-002; 121-003 ... até 121-085 e mais os 15% especiais,
+            identificados como 121-086E, 121-087E ... até 121-100E.
 
     3. O sistema deverá permitir ao operador listar todos os eventos.
 
