@@ -4,6 +4,6 @@ public class Evento {
     private String nome;
     private String descricao;
     private int valor;
-    private int qntVagas;
+    private int qntIngresso;
     private int idEvento;
 }
