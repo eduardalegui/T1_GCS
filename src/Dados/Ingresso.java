@@ -5,13 +5,16 @@ public class Ingresso {
     private boolean especial = true;
     private String codigo;
     private int idIngresso;
+    private Participante participante;
     
-    public Ingresso(Evento evento, boolean especial, String codigo, int idIngresso) {
+    public Ingresso(Evento evento, boolean especial, String codigo, int idIngresso, Participante participante) {
         this.evento = evento;
         this.especial = especial;
         this.codigo = codigo;
         this.idIngresso = idIngresso;
+        this.participante = participante;
     }
+
     public Evento getEvento() {
         return evento;
     }
@@ -27,6 +30,11 @@ public class Ingresso {
     public int getIdIngresso() {
         return idIngresso;
     }
+
+    public Participante getParticipante(){
+        return participante;
+    }
+
     public void setEvento(Evento evento) {
         this.evento = evento;
     }
