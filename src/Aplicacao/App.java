@@ -54,7 +54,7 @@ public class App {
 }
 
 
-// ideia de app 
+/* // ideia de app 
 package Aplicacao;
 
 import Dados.Evento;
@@ -200,5 +200,5 @@ public class App {
         int valor = in.nextInt();
         in.nextLine(); // Consome a quebra de linha
         return valor;
-    }
-}
+    } 
+}*/
