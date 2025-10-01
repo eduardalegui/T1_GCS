@@ -4,7 +4,7 @@ public class Evento {
     private String nome;
     private String descricao;
     private int valor;
-    private int qntVagas;
+    private int qntIngresso;
     private int idEvento;
 
     public Evento(String nome, String descricao, int valor, int qntVagas, int idEvento) {
