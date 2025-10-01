@@ -7,11 +7,11 @@ public class Evento {
     private int qntIngresso;
     private int idEvento;
 
-    public Evento(String nome, String descricao, int valor, int qntVagas, int idEvento) {
+    public Evento(String nome, String descricao, int valor, int qntIngresso, int idEvento) {
         this.nome = nome;
         this.descricao = descricao;
         this.valor = valor;
-        this.qntIngresso = qntVagas;
+        this.qntIngresso = qntIngresso;
         this.idEvento = idEvento;
     }
 
@@ -28,7 +28,7 @@ public class Evento {
         return valor;
     }
 
-    public int getQntVagas() {
+    public int getQntIngresso() {
         return qntIngresso;
     }
 
@@ -49,8 +49,8 @@ public class Evento {
         this.valor = valor;
     }
 
-    public void setQntVagas(int qntVagas) {
-        this.qntIngresso = qntVagas;
+    public void setQntIngresso(int qntIngresso) {
+        this.qntIngresso = qntIngresso;
     }
 
     public void setIdEvento(int idEvento) {
@@ -63,7 +63,7 @@ public class Evento {
                 "nome=\'" + nome + '\'' +
                 ", descricao=\'" + descricao + '\'' +
                 ", valor=" + valor +
-                ", qntVagas=" + qntIngresso +
+                ", qntIngresso=" + qntIngresso +
                 ", idEvento=" + idEvento +
                 '}' + '\n';
     }
