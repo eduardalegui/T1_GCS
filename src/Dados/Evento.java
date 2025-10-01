@@ -1,11 +1,14 @@
 package Dados;
 
+import Gerenciamento.GerenciaIngresso;
+
 public class Evento {
     private String nome;
     private String descricao;
     private int valor;
     private int qntIngresso;
     private int idEvento;
+    private GerenciaIngresso gerenciaIngresso;
 
     public Evento(String nome, String descricao, int valor, int qntIngresso, int idEvento) {
         this.nome = nome;
@@ -13,6 +16,7 @@ public class Evento {
         this.valor = valor;
         this.qntIngresso = qntIngresso;
         this.idEvento = idEvento;
+        gerenciaIngresso = new GerenciaIngresso();
     }
 
     // Getters
