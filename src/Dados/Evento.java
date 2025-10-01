@@ -11,7 +11,7 @@ public class Evento {
         this.nome = nome;
         this.descricao = descricao;
         this.valor = valor;
-        this.qntVagas = qntVagas;
+        this.qntIngresso = qntVagas;
         this.idEvento = idEvento;
     }
 
@@ -29,7 +29,7 @@ public class Evento {
     }
 
     public int getQntVagas() {
-        return qntVagas;
+        return qntIngresso;
     }
 
     public int getIdEvento() {
@@ -50,7 +50,7 @@ public class Evento {
     }
 
     public void setQntVagas(int qntVagas) {
-        this.qntVagas = qntVagas;
+        this.qntIngresso = qntVagas;
     }
 
     public void setIdEvento(int idEvento) {
@@ -60,11 +60,11 @@ public class Evento {
     @Override
     public String toString() {
         return "Evento{" +
-               "nome=\'" + nome + '\'' +
-               ", descricao=\'" + descricao + '\'' +
-               ", valor=" + valor +
-               ", qntVagas=" + qntVagas +
-               ", idEvento=" + idEvento +
-               '}' + '\n';
+                "nome=\'" + nome + '\'' +
+                ", descricao=\'" + descricao + '\'' +
+                ", valor=" + valor +
+                ", qntVagas=" + qntIngresso +
+                ", idEvento=" + idEvento +
+                '}' + '\n';
     }
 }
