@@ -1,5 +1,7 @@
 package Gerenciamento;
 import Dados.Evento;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -11,8 +13,10 @@ public class GerenciaEvento {
         eventos = new ArrayList<>();
     }
 
-    public void cadastrarEvento(Evento evento){
-        
+    public boolean cadastrarEvento(Evento evento){
+        if (hojeOuAnterior(evento)) {
+            return false;
+        }
     }
 
     public void atribuirCodigoUnico(Evento evento){
@@ -20,5 +24,12 @@ public class GerenciaEvento {
         String uuidSemHifen = id.toString().replace("-","");
         String idCurto = uuidSemHifen.substring(uuidSemHifen.length()- 5);
         evento.setIdEvento(idCurto);
+    }
+
+    public boolean hojeOuAnterior(Evento evento) {
+        LocalDate dataEvento = evento.getData();
+        LocalDate hoje = LocalDate.now();
+
+        return dataEvento.isBefore(hoje) || dataEvento.isEqual(hoje);
     }
 }
