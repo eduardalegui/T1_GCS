@@ -49,8 +49,12 @@ public class GerenciaIngresso {
     }
 
     public void adicionaParticipantesComIngresso(){
-        for(int i = 0; i<gerenciaIngresso.size(); i++){}
-        
+        if(gerenciaIngresso.size() != participantesComIngresso.size()){
+            for(int i = 0; i<gerenciaIngresso.size(); i++){
+                Participante p = gerenciaIngresso.get(i).getParticipante();
+                participantesComIngresso.add(p);
+            }
+        }
     }
     
 }
