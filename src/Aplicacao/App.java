@@ -8,15 +8,19 @@ import java.nio.charset.Charset;
 import java.util.Locale;
 import java.util.Scanner;
 
+import Gerenciamento.GerenciaEvento;
+
 public class App {
     // Atributos para redirecionamento de I/O;
     private Scanner in = new Scanner(System.in);  // Atributo para entrada padrão (teclado);
     private final String nomeArquivoEntrada = "dadosin.txt";  // Nome do arquivo de entrada de dados;
     private final String nomeArquivoSaida = "dadosout.txt";  // Nome do arquivo de saída de dados;
+    private GerenciaEvento gerenciaEvento;
 
     public App() {
         redirecionaEntrada();    // Redireciona Entrada para arquivos;
         redirecionaSaida();    // Redireciona Saída para arquivos;
+        gerenciaEvento = new GerenciaEvento();
     }
 
     // Responsável pela utilização e ordenação da aplicação correta dos métodos;
