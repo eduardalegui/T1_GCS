@@ -12,6 +12,7 @@ public class Evento {
     private String idEvento;
     private LocalDate data;
     private GerenciaIngresso gerenciaIngresso;
+    private String local;
 
     public Evento(String nome, String descricao, int valor, int qntIngresso, String idEvento, LocalDate data) {
         this.nome = nome;
@@ -20,6 +21,7 @@ public class Evento {
         this.qntIngresso = qntIngresso;
         this.idEvento = idEvento;
         this.data = data;
+        this.local = local;
         gerenciaIngresso = new GerenciaIngresso();
     }
 
@@ -27,7 +29,9 @@ public class Evento {
     public String getNome() {
         return nome;
     }
-
+    public String getLocal() {
+        return local;
+    }
     public String getDescricao() {
         return descricao;
     }
