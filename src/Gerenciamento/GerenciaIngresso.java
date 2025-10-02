@@ -43,6 +43,7 @@ public class GerenciaIngresso {
             if(ausente) {
                 ausentes.add(participantesComIngresso.get(i));
             }
+            ausente = true;
         }
         return ausentes;
     }
