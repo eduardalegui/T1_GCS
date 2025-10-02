@@ -1,5 +1,7 @@
 package Dados;
 
+import java.time.LocalDate;
+
 import Gerenciamento.GerenciaIngresso;
 
 public class Evento {
@@ -7,15 +9,17 @@ public class Evento {
     private String descricao;
     private int valor;
     private int qntIngresso;
-    private int idEvento;
+    private String idEvento;
+    private LocalDate data;
     private GerenciaIngresso gerenciaIngresso;
 
-    public Evento(String nome, String descricao, int valor, int qntIngresso, int idEvento) {
+    public Evento(String nome, String descricao, int valor, int qntIngresso, String idEvento, LocalDate data) {
         this.nome = nome;
         this.descricao = descricao;
         this.valor = valor;
         this.qntIngresso = qntIngresso;
         this.idEvento = idEvento;
+        this.data = data;
         gerenciaIngresso = new GerenciaIngresso();
     }
 
@@ -36,8 +40,12 @@ public class Evento {
         return qntIngresso;
     }
 
-    public int getIdEvento() {
+    public String getIdEvento() {
         return idEvento;
+    }
+
+    public LocalDate getData(){
+        return data;
     }
 
     // Setters
@@ -57,8 +65,12 @@ public class Evento {
         this.qntIngresso = qntIngresso;
     }
 
-    public void setIdEvento(int idEvento) {
+    public void setIdEvento(String idEvento) {
         this.idEvento = idEvento;
+    }
+
+    public void setData(LocalDate data){
+        this.data = data;
     }
 
     @Override
