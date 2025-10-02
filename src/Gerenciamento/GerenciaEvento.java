@@ -14,6 +14,9 @@ public class GerenciaEvento {
     }
 
     public boolean cadastrarEvento(Evento evento){
+        if (!validarParametros(evento)) {
+            return false;
+        }
         if (hojeOuAnterior(evento)) {
             return false;
         }
@@ -31,5 +34,12 @@ public class GerenciaEvento {
         LocalDate hoje = LocalDate.now();
 
         return dataEvento.isBefore(hoje) || dataEvento.isEqual(hoje);
+    }
+
+    public boolean validarParametros(Evento evento){
+        if (evento.getNome() == null || evento.getDescricao() == null || evento.getQntIngresso() <= 0 || evento.getValor() < 0 || evento.getData() == null) {
+            return false;
+        }
+        return true;
     }
 }
