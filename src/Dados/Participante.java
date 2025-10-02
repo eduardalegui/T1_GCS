@@ -47,7 +47,7 @@ public class Participante {
     @Override
     public String toString() {
         return "Participante{" +
-               "ingressoId=" + (ingresso != null ? ingresso.getIdIngresso() : "N/A") +
+               "codIngresso=" + (ingresso != null ? ingresso.getCodigo() : "N/A") +
                ", nome=\'" + nome + "\'" +
                ", cpf=\'" + cpf + "\'" +
                ", idade=" + idade +
