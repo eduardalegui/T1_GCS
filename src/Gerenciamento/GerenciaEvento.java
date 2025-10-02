@@ -20,6 +20,11 @@ public class GerenciaEvento {
         if (hojeOuAnterior(evento)) {
             return false;
         }
+
+        eventos.add(evento);
+        atribuirCodigoUnico(evento);
+
+        return true;
     }
 
     public void atribuirCodigoUnico(Evento evento){
