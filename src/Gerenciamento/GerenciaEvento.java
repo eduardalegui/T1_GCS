@@ -9,4 +9,14 @@ public class GerenciaEvento {
     public GerenciaEvento(){
         eventos = new ArrayList<>();
     }
+
+    public boolean cancelarEvento(String nome){
+        Evento eventoRemover = procurarEventoEspecifico(nome);
+        
+        if(eventoRemover == null){
+            return false;
+        } else{
+            eventos.remove(eventoRemover);
+        }
+    }
 }

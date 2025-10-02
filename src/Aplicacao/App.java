@@ -29,6 +29,20 @@ public class App {
 
     }
 
+    public void cancelarEvento(){
+        System.out.println("CANCELAR EVENTO");
+        //chamar método gerenciaEvento.listarEventos();
+
+        System.out.println("Digite o nome do evento que você quer excluir: ");
+        String nome = in.nextLine();
+
+        if(!gerenciaEvento.cancelarEvento(nome)){
+            System.out.println("O evento não existe.");
+        } else{
+            System.out.println("O evento " + nome + " foi cancelado com sucesso.");
+        }
+    }
+
     // Redireciona Entrada de dados para arquivos em vez de teclado;
     // Chame este método para redirecionar a leitura de dados para arquivos;
     private void redirecionaEntrada() {
