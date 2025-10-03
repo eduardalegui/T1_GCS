@@ -17,10 +17,18 @@ public class GerenciaIngresso {
     }
 
         public Ingresso emitirIngresso (Evento evento, Participante participante, boolean isEspecial){
-        
+
             String codigo = gerarCodigoIngresso(evento);
             int idIngresso = gerarIdIngresso();
 
             Ingresso novoIngresso = new Ingresso(evento, isEspecial, codigo, idIngresso, participante);
             this.ingressosVendidos.add(novoIngresso);
 
+            if (participante.getIngresso() == null) {
+                participante.setIngresso(novoIngresso);
+            }
+
+            System.out.println("SUCESSO - Ingresso " + codigo + " emitido para " + participante.getNome());
+            return novoIngresso;
+        }
+        
