@@ -1,8 +1,6 @@
 package Dados;
 
 import java.time.LocalDate;
-import java.util.Scanner;
-
 import Gerenciamento.GerenciaIngresso;
 
 public class Evento {
@@ -54,6 +52,18 @@ public class Evento {
         return data;
     }
 
+    public GerenciaIngresso getGerenciaIngresso() {
+        return gerenciaIngresso;
+    }
+
+    public int getQntIngressosComuns() {
+        return qntIngressosComuns;
+    }
+
+    public int getQntIngressosEspeciais() {
+        return qntIngressosEspeciais;
+    }
+
     // Setters
     public void setNome(String nome) {
         this.nome = nome;
@@ -77,61 +87,6 @@ public class Evento {
 
     public void setData(LocalDate data){
         this.data = data;
-    }
-
-    public void emitirIngresso() throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite o nome do participante:");
-        String nome = scanner.nextLine();
-        System.out.println("Digite o CPF do participante:");
-        String cpf = scanner.nextLine();
-        System.out.println("Digite a idade do participante:");
-        int idade = Integer.parseInt(scanner.nextLine());
-        System.out.println("O ingresso é especial? (s/n):");
-        String especialInput = scanner.nextLine();
-        boolean especial = especialInput.equalsIgnoreCase("s");
-
-        boolean cpfJaUtilizado = false;
-
-        for (Ingresso ingressoComum : gerenciaIngresso.getIngressosComuns()) {
-            if (ingressoComum.getParticipante().getCpf().equals(cpf)) {
-                cpfJaUtilizado = true;
-                break;
-            }
-        }
-
-        for (Ingresso ingressoEspecial : gerenciaIngresso.getIngressosEspeciais()) {
-            if (ingressoEspecial.getParticipante().getCpf().equals(cpf)) {
-                cpfJaUtilizado = true;
-                break;
-            }
-        }
-
-        if (cpfJaUtilizado){
-            throw new Exception("CPF já utilizado em ingressos para este evento!");
-        }
-
-        Participante participante = new Participante(null, nome, cpf, idade);
-
-        if (especial){
-            if (gerenciaIngresso.getIngressosEspeciais().size() < qntIngressosEspeciais){
-                Ingresso ingresso = new Ingresso(this, true, gerenciaIngresso.getIngressosEspeciais().size() + 1, participante);
-                gerenciaIngresso.getIngressosEspeciais().add(ingresso);
-                participante.setIngresso(ingresso);
-                System.out.println("Ingresso especial emitido com sucesso! Código: " + ingresso.getCodigo());
-            } else {
-                throw new Exception("Não há mais ingressos especiais disponíveis para este evento.");
-            }
-        } else {
-            if (gerenciaIngresso.getIngressosComuns().size() < qntIngressosComuns){
-                Ingresso ingresso = new Ingresso(this, false, gerenciaIngresso.getIngressosComuns().size() + 1, participante);
-                gerenciaIngresso.getIngressosComuns().add(ingresso);
-                participante.setIngresso(ingresso);
-                System.out.println("Ingresso comum emitido com sucesso! Código: " + ingresso.getCodigo());
-            } else {
-                throw new Exception("Não há mais ingressos comuns disponíveis para este evento.");
-            }
-        }
     }
 
     @Override
