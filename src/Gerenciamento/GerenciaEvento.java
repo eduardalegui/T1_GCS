@@ -14,6 +14,39 @@ public class GerenciaEvento {
         eventos = new ArrayList<>();
     }
 
+    public boolean cadastrarEvento(Evento evento) {
+        if (!validarParametros(evento)) {
+            return false;
+        }
+        if (hojeOuAnterior(evento)) {
+            return false;
+        }
+
+        eventos.add(evento);
+        atribuirCodigoUnico(evento);
+        return true;
+    }
+
+    public void atribuirCodigoUnico(Evento evento) {
+        UUID id = UUID.randomUUID();
+        String uuidSemHifen = id.toString().replace("-", "");
+        String idCurto = uuidSemHifen.substring(uuidSemHifen.length() - 5);
+        evento.setIdEvento(idCurto);
+    }
+
+    public boolean hojeOuAnterior(Evento evento) {
+        LocalDate dataEvento = evento.getData();
+        LocalDate hoje = LocalDate.now();
+        return dataEvento.isBefore(hoje) || dataEvento.isEqual(hoje);
+    }
+
+    public boolean validarParametros(Evento evento) {
+        if (evento.getNome() == null || evento.getDescricao() == null ||
+            evento.getQntIngresso() <= 0 || evento.getValor() < 0 || evento.getData() == null) {
+            return false;
+        }
+        return true;
+    }
     // Método para procurar um evento pelo nome e retornar todos atributos dele
 
     public void procurarEvento(String nome) {
@@ -65,6 +98,7 @@ public class GerenciaEvento {
        if (eventosNoMes.isEmpty()) { //verifica se há eventos
             System.out.println("Nenhum evento encontrado neste mês e ano."); //se não houver eventos
         }
+      
         System.out.println("Eventos em " + mes + "/" + ano + ":");
         for (Evento evento : eventosNoMes) { //imprime os eventos encontrados
             System.out.println("Nome: " + evento.getNome() +
@@ -77,39 +111,13 @@ public class GerenciaEvento {
         }
     }
 
-    public boolean cadastrarEvento(Evento evento){
-        if (!validarParametros(evento)) { //checagem do parametro recebido conforme a especificação
-            return false;
+    public void listarEventosOrdenadosPorValor() {
+        eventos.sort((e1, e2) -> Integer.compare(e1.getValor(), e2.getValor()));
+
+        System.out.println("Eventos ordenados por valor do ingresso:");
+        for (Evento evento : eventos) {
+            System.out.println("Nome: " + evento.getNome() + " | Valor: R$" + evento.getValor());
         }
-        if (hojeOuAnterior(evento)) {
-            return false;
-        }
-
-        eventos.add(evento); //adiciona no array
-        atribuirCodigoUnico(evento);
-
-        return true;
-    }
-
-    public void atribuirCodigoUnico(Evento evento){
-        UUID id = UUID.randomUUID();  //uso de uuid para geração de um id automaticamente
-        String uuidSemHifen = id.toString().replace("-","");
-        String idCurto = uuidSemHifen.substring(uuidSemHifen.length()- 5); //guardar apenas os 5 ultimos caracteres por conveniencia
-        evento.setIdEvento(idCurto);
-    }
-
-    public boolean hojeOuAnterior(Evento evento) {
-        LocalDate dataEvento = evento.getData(); //uso de LocalDate para usar seus metodos na checagem
-        LocalDate hoje = LocalDate.now(); 
-
-        return dataEvento.isBefore(hoje) || dataEvento.isEqual(hoje); //retorna true se for no passado ou hoje
-    }
-
-    public boolean validarParametros(Evento evento){ //checa a existencia ou coerência dos paramentros recebidos
-        if (evento.getNome() == null || evento.getDescricao() == null || evento.getQntIngresso() <= 0 || evento.getValor() < 0 || evento.getData() == null) {
-            return false;
-        }
-        return true;//se estiver tudo certo
     }
 
     // Método para encontrar o evento e retornar ele como objeto
@@ -145,4 +153,5 @@ public class GerenciaEvento {
             System.out.println("Quantidade de ingressos: " + e.getQntIngresso()); // Mostra a quantidade de ingressos disponíveis
             System.out.println("-----------------------------------"); // Linha de separação para organização
         }
-    }}
+    }
+}
