@@ -16,7 +16,7 @@ public class GerenciaIngresso {
         this.random = new Random();
     }
 
-        public Ingresso emitirIngresso (Evento evento, Participante participante, boolean isEspecial){
+        public Ingresso emitirIngresso (Evento evento, Participante participante, boolean isEspecial) {
 
             String codigo = gerarCodigoIngresso(evento);
             int idIngresso = gerarIdIngresso();
@@ -32,3 +32,26 @@ public class GerenciaIngresso {
             return novoIngresso;
         }
         
+    public int getTotalIngressosVendidos () {
+        return ingressosVendidos.size();
+    }
+
+    public int getIngressosVendidosNormais () {
+        int count = 0;
+        for (Ingresso ingresso : ingressosVendidos) {
+            if (!ingresso.isEspecial()) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int getIngressosVendidosEspeciais () {
+        int count = 0;
+        for (Ingresso ingresso : ingressosVendidos) {
+            if (ingresso.isEspecial()) {
+                count++;
+            }
+        }
+        return count;
+    }
