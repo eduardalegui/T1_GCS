@@ -75,20 +75,6 @@ public class  Evento {
         this.data = data;
     }
 
-    public Ingresso emitirNovoIngresso(Participante participante, boolean isEspecial) {
-        System.out.println("F) Chamando método emitir ingressos...");
-
-        // Verifica se a lotação máxima foi atingida
-        if (this.gerenciaIngresso.getTotalIngressosVendidos() >= this.qntIngresso) {
-            System.out.println("   [ERRO] Lotação máxima do evento atingida. Não é possível emitir mais ingressos.");
-            return null;
-        }
-
-        // Delega a criação do ingresso à GerenciaIngresso
-        return this.gerenciaIngresso.emitirIngresso(this, participante, isEspecial);
-    }
-
-
     @Override
     public String toString() {
         return "Evento{" +
