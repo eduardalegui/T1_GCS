@@ -110,6 +110,16 @@ public class  Evento {
             System.out.println("   Nenhum ingresso foi vendido ainda.");
         }
 
+        System.out.println("\nD) PERCENTUAL DE OCUPAÇÃO TOTAL (Vendidos vs Lotação Máxima):");
+        double percOcupacao = 0.0;
+        if (this.qntIngresso > 0) {
+            percOcupacao = (double) totalVendidos / this.qntIngresso * 100;
+        }
+        System.out.printf("   Ocupação: %d ingressos vendidos / %d lotação (%.2f%%)\n", totalVendidos, this.qntIngresso, percOcupacao);
+
+        System.out.println("==============================================");
+    }
+
         @Override
         public String toString () {
             return "Evento{" +
