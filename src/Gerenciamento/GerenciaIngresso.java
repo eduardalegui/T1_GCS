@@ -31,7 +31,7 @@ public class GerenciaIngresso {
             System.out.println("SUCESSO - Ingresso " + codigo + " emitido para " + participante.getNome());
             return novoIngresso;
         }
-
+        
     public int getTotalIngressosVendidos () {
         return ingressosVendidos.size();
     }
@@ -55,12 +55,3 @@ public class GerenciaIngresso {
         }
         return count;
     }
-
-    private String gerarCodigoIngresso (Evento evento){
-        return evento.getIdEvento() + "-" + (ingressosVendidos.size() + 1) + new Random().nextInt(100);
-    }
-
-    private int gerarIdIngresso () {
-        return ingressosVendidos.size() + 1;
-    }
-}
