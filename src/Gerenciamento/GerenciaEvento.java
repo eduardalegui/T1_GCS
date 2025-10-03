@@ -123,4 +123,26 @@ public class GerenciaEvento {
 
         return null;
     }
-}
+    // Método responsável por listar todos os eventos cadastrados no sistema
+    public void listarEventos() {
+        // Verifica se a lista de eventos está vazia
+        if (eventos.isEmpty()) {
+            System.out.println("Nenhum evento cadastrado."); // Mensagem exibida caso não haja eventos
+            return; // Sai do método, já que não tem nada para listar
+        }
+
+        // Caso existam eventos, imprime um cabeçalho
+        System.out.println("=== Lista de eventos cadastrados ===");
+
+        // Percorre todos os eventos dentro do ArrayList<Evento>
+        for (Evento e : eventos) {
+            // Para cada evento, exibe seus dados utilizando os getters da classe Evento
+            System.out.println("ID: " + e.getIdEvento());          // Mostra o identificador único
+            System.out.println("Nome: " + e.getNome());            // Mostra o nome do evento
+            System.out.println("Descrição: " + e.getDescricao());  // Mostra a descrição
+            System.out.println("Data: " + e.getData());            // Mostra a data do evento
+            System.out.println("Valor: R$ " + e.getValor());       // Mostra o valor do ingresso
+            System.out.println("Quantidade de ingressos: " + e.getQntIngresso()); // Mostra a quantidade de ingressos disponíveis
+            System.out.println("-----------------------------------"); // Linha de separação para organização
+        }
+    }}
