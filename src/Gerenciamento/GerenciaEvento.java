@@ -1,6 +1,7 @@
 package Gerenciamento;
 import Dados.Evento;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -11,6 +12,28 @@ public class GerenciaEvento {
 
     public GerenciaEvento(){
         eventos = new ArrayList<>();
+    }
+
+    public void buscarEventos(int mes, int ano) {
+        ArrayList<Evento> eventosNoMes = new ArrayList<>();
+        for (Evento evento : eventos) { 
+            if (evento.getData().getMonthValue() == mes && evento.getData().getYear() == ano) { //verifica se o evento é no mes e ano desejado
+                eventosNoMes.add(evento); //adiciona na lista de eventos encontrados
+            }
+        }
+       if (eventosNoMes.isEmpty()) { //verifica se há eventos
+            System.out.println("Nenhum evento encontrado neste mês e ano."); //se não houver eventos
+        }
+        System.out.println("Eventos em " + mes + "/" + ano + ":");
+        for (Evento evento : eventosNoMes) { //imprime os eventos encontrados
+            System.out.println("Nome: " + evento.getNome() +
+            ", Data: " + evento.getData() +
+            ", ID: " + evento.getIdEvento() +
+            ", Descrição: " + evento.getDescricao() +
+            ", Valor: " + evento.getValor() +
+            ", Quantidade de Ingressos: " + evento.getQntIngresso() +
+            "\n");
+        }
     }
 
     public boolean cadastrarEvento(Evento evento){
