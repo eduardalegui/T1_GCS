@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import Gerenciamento.GerenciaIngresso;
 
-public class  Evento {
+public class Evento {
     private String nome;
     private String descricao;
     private int valor;
@@ -47,8 +47,6 @@ public class  Evento {
     public LocalDate getData(){
         return data;
     }
-
-    public GerenciaIngresso getGerenciaIngresso() { return gerenciaIngresso; }
 
     // Setters
     public void setNome(String nome) {
