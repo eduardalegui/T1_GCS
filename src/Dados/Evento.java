@@ -97,19 +97,6 @@ public class  Evento {
         System.out.println("CONSULTA DE DETALHES DO EVENTO: " + this.nome);
         System.out.println("==============================================");
 
-        System.out.println("C) INGRESSOS VENDIDOS POR TIPO E PERCENTUAIS (sobre o total vendido):");
-        System.out.println("   Total de Ingressos Vendidos: " + totalVendidos);
-
-        if (totalVendidos > 0) {
-            double percNormais = (double) vendidosNormais / totalVendidos * 100;
-            double percEspeciais = (double) vendidosEspeciais / totalVendidos * 100;
-
-            System.out.printf("   - Ingressos Normais Vendidos: %d (%.2f%%)\n", vendidosNormais, percNormais);
-            System.out.printf("   - Ingressos Especiais Vendidos: %d (%.2f%%)\n", vendidosEspeciais, percEspeciais);
-        } else {
-            System.out.println("   Nenhum ingresso foi vendido ainda.");
-        }
-
         @Override
         public String toString () {
             return "Evento{" +
