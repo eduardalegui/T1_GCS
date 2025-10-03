@@ -88,24 +88,15 @@ public class  Evento {
         return this.gerenciaIngresso.emitirIngresso(this, participante, isEspecial);
     }
 
-    public void consultarDetalhes() {
-        int totalVendidos = gerenciaIngresso.getTotalIngressosVendidos();
-        int vendidosNormais = gerenciaIngresso.getIngressosVendidosNormais();
-        int vendidosEspeciais = gerenciaIngresso.getIngressosVendidosEspeciais();
 
-        System.out.println("\n==============================================");
-        System.out.println("CONSULTA DE DETALHES DO EVENTO: " + this.nome);
-        System.out.println("==============================================");
-
-        @Override
-        public String toString () {
-            return "Evento{" +
-                    "nome=\'" + nome + '\'' +
-                    ", descricao=\'" + descricao + '\'' +
-                    ", valor=" + valor +
-                    ", qntIngresso=" + qntIngresso +
-                    ", idEvento=" + idEvento +
-                    '}' + '\n';
-        }
+    @Override
+    public String toString() {
+        return "Evento{" +
+                "nome=\'" + nome + '\'' +
+                ", descricao=\'" + descricao + '\'' +
+                ", valor=" + valor +
+                ", qntIngresso=" + qntIngresso +
+                ", idEvento=" + idEvento +
+                '}' + '\n';
     }
 
