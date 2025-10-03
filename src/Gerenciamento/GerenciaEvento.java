@@ -20,12 +20,5 @@ public class GerenciaEvento {
         return novoEvento;
     }
 
-    public Optional<Evento> buscarEventoPorId(String idEvento) {
-        for (Evento evento : eventos) {
-            if (evento.getIdEvento().equals(idEvento)) {
-                return Optional.of(evento);
-            }
-        }
-        return Optional.empty();
-    }
+
 }
