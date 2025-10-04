@@ -1,4 +1,5 @@
 package Gerenciamento;
+import Dados.Evento;
 import Dados.Ingresso;
 import Dados.Participante;
 import java.util.ArrayList;
@@ -11,12 +12,14 @@ public class GerenciaIngresso {
     private ArrayList<Ingresso> gerenciaIngresso; 
     private ArrayList<Participante> participantesComIngresso; // Criação do ArrayList de participantes com ingresso
     private ArrayList<Participante> participantesPresentes;  // Criação do ArrayList de participantes presentes
+    private Random random = new Random();
 
     public GerenciaIngresso (){
         gerenciaIngresso = new ArrayList<>(); 
         participantesComIngresso = new ArrayList<>(); // Inicialização do ArrayList de participantes com ingresso
         participantesPresentes = new ArrayList<>(); // Inicialização do ArrayList de participantes presentes
     }
+    
   
     public int getTotalIngressosVendidos(){
         return gerenciaIngresso.size();
@@ -71,6 +74,53 @@ public class GerenciaIngresso {
                 participantesComIngresso.add(p); // Adiciona o participante a lista de participantes com ingresso
             }
         }
+    }
+
+    public Ingresso emitirIngresso(Evento evento, Participante participante, boolean isEspecial) {
+
+        String codigo = gerarCodigoIngresso(evento);
+        int idIngresso = gerarIdIngresso();
+
+        Ingresso novoIngresso = new Ingresso(evento, isEspecial, codigo, idIngresso, participante);
+        this.gerenciaIngresso.add(novoIngresso);
+
+        if (participante.getIngresso() == null) {
+            participante.setIngresso(novoIngresso);
+        }
+
+        System.out.println("SUCESSO - Ingresso " + codigo + " emitido para " + participante.getNome());
+        return novoIngresso;
+    }
+
+    public int getTotalIngressosVendidos() {
+        return gerenciaIngresso.size();
+    }
+
+    public int getIngressosVendidosNormais() {
+        int count = 0;
+        for (Ingresso ingresso : gerenciaIngresso) {
+            if (!ingresso.isEspecial()) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int getIngressosVendidosEspeciais() {
+        int count = 0;
+        for (Ingresso ingresso : gerenciaIngresso) {
+            if (ingresso.isEspecial()) {
+                count++;
+            }
+        }
+        return count;
+    }
+    private String gerarCodigoIngresso (Evento evento){
+        return evento.getIdEvento() + "-T-" + random.nextInt(999);
+    }
+
+    private int gerarIdIngresso () {
+        return gerenciaIngresso.size() + 1;
     }
     
 }

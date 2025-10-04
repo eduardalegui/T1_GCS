@@ -1,6 +1,7 @@
 package Gerenciamento;
 
 import Dados.Evento;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.List;
