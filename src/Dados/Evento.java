@@ -1,7 +1,7 @@
 package Dados;
 
-import java.time.LocalDate;
 import Gerenciamento.GerenciaIngresso;
+import java.time.LocalDate;
 
 public class  Evento {
     private String nome;
@@ -25,9 +25,6 @@ public class  Evento {
     // Getters
     public String getNome() {
         return nome;
-    }
-    public String getLocal() {
-        return local;
     }
     public String getDescricao() {
         return descricao;
