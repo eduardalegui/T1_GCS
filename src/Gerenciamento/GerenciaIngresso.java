@@ -3,6 +3,9 @@ import Dados.Evento;
 import Dados.Ingresso;
 import Dados.Participante;
 import java.util.ArrayList;
+import Dados.Evento;
+import Dados.Participante;
+import java.util.List;
 import java.util.Random;
 
 public class GerenciaIngresso {
@@ -15,7 +18,19 @@ public class GerenciaIngresso {
         gerenciaIngresso = new ArrayList<>(); 
         participantesComIngresso = new ArrayList<>(); // Inicialização do ArrayList de participantes com ingresso
         participantesPresentes = new ArrayList<>(); // Inicialização do ArrayList de participantes presentes
-        
+    }
+    
+  
+    public int getTotalIngressosVendidos(){
+        return gerenciaIngresso.size();
+    }
+
+    public int getIngressosVendidosNormais(){
+        return ingressosComuns.size();
+    }
+
+    public int getIngressosVendidosEspeciais(){
+        return ingressosEspeciais.size();
     }
 
     
@@ -109,3 +124,4 @@ public class GerenciaIngresso {
     }
     
 }
+

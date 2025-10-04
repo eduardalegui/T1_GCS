@@ -3,7 +3,10 @@ package Gerenciamento;
 import Dados.Evento;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.List;
+import java.time.LocalDate;
+import java.lang.reflect.Array;
 import java.util.UUID;
 
 public class GerenciaEvento {

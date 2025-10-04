@@ -3,7 +3,7 @@ package Dados;
 import java.time.LocalDate;
 import Gerenciamento.GerenciaIngresso;
 
-public class Evento {
+public class  Evento {
     private String nome;
     private String descricao;
     private int valor;
@@ -11,27 +11,24 @@ public class Evento {
     private String idEvento;
     private LocalDate data;
     private GerenciaIngresso gerenciaIngresso;
-    private int qntIngressosComuns;
-    private int qntIngressosEspeciais;
 
 
     public Evento(String nome, String descricao, int valor, int qntIngresso, String idEvento, LocalDate data) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.valor = valor;
-        this.qntIngresso = qntIngresso;
-        this.idEvento = idEvento;
-        this.data = data;
-        gerenciaIngresso = new GerenciaIngresso();
-        this.qntIngressosComuns = (int) Math.floor(qntIngresso * 0.75);
-        this.qntIngressosEspeciais = (int) Math.floor(qntIngresso * 0.25);
+      this.nome = nome;
+      this.descricao = descricao;
+      this.valor = valor;
+      this.qntIngresso = qntIngresso;
+      this.idEvento = idEvento;
+      this.data = data;
+      gerenciaIngresso = new GerenciaIngresso();
     }
-
     // Getters
     public String getNome() {
         return nome;
     }
-
+    public String getLocal() {
+        return local;
+    }
     public String getDescricao() {
         return descricao;
     }
@@ -52,17 +49,7 @@ public class Evento {
         return data;
     }
 
-    public GerenciaIngresso getGerenciaIngresso() {
-        return gerenciaIngresso;
-    }
-
-    public int getQntIngressosComuns() {
-        return qntIngressosComuns;
-    }
-
-    public int getQntIngressosEspeciais() {
-        return qntIngressosEspeciais;
-    }
+    public GerenciaIngresso getGerenciaIngresso() { return gerenciaIngresso; }
 
     // Setters
     public void setNome(String nome) {
@@ -89,14 +76,15 @@ public class Evento {
         this.data = data;
     }
 
-    @Override
-    public String toString() {
-        return "Evento{" +
-                "nome=\'" + nome + '\'' +
-                ", descricao=\'" + descricao + '\'' +
-                ", valor=" + valor +
-                ", qntIngresso=" + qntIngresso +
-                ", idEvento=" + idEvento +
-                '}' + '\n';
+        @Override
+        public String toString () {
+            return "Evento{" +
+                    "nome=\'" + nome + '\'' +
+                    ", descricao=\'" + descricao + '\'' +
+                    ", valor=" + valor +
+                    ", qntIngresso=" + qntIngresso +
+                    ", idEvento=" + idEvento +
+                    '}' + '\n';
+        }
     }
-}
+
