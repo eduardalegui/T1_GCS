@@ -64,5 +64,17 @@ public class GerenciaIngresso {
         return ingressosVendidos.size() + 1;
     }
 
+    public int getTotalIngressosVendidos(){
+        return gerenciaIngresso.size();
+    }
+
+    public int getIngressosVendidosNormais(){
+        return ingressosComuns.size();
+    }
+
+    public int getIngressosVendidosEspeciais(){
+        return ingressosEspeciais.size();
+    }
+
 }
 
