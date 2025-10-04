@@ -4,6 +4,8 @@ import Gerenciamento.GerenciaEvento;
 import Dados.Evento;
 import Dados.Participante;
 
+import java.io.File;
+import java.nio.charset.Charset;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -15,7 +17,7 @@ import java.util.Scanner;
 
 public class App {
 
-    private final Scanner in;
+    private Scanner in;  // Removido "final" para permitir redirecionamento
     private final GerenciaEvento gerenciaEvento;
 
     // Sem HashMap: lista simples e busca linear por CPF
@@ -25,7 +27,7 @@ public class App {
 
     public App() {
         Locale.setDefault(new Locale("pt", "BR"));
-        in = new Scanner(System.in);
+        redirecionaEntrada();  // agora de fato inicializa 'in'
         gerenciaEvento = new GerenciaEvento();
         participantes = new ArrayList<>();
     }
@@ -122,13 +124,11 @@ public class App {
 
         boolean especial = lerOpcaoSimNao("Ingresso especial (15% do total) [s/n]? ");
 
-        // Reutiliza a MESMA instância do participante (sem Map)
         Participante p = buscarParticipantePorCpf(cpf);
         if (p == null) {
             p = new Participante(null, nome, cpf, idade);
             participantes.add(p);
         } else {
-            // Atualiza dados básicos, se desejar
             p.setNome(nome);
             p.setIdade(idade);
         }
@@ -252,6 +252,26 @@ public class App {
 
     private void pause() {
         System.out.print("\nPressione ENTER para continuar...");
-        in.nextLine();
+        if (in.hasNextLine()) in.nextLine();
+    }
+
+    // Redireciona entrada para arquivo (se existir)
+    private void redirecionaEntrada() {
+        try {
+            File arquivo = new File("dadosin.txt");
+            if (arquivo.exists()) {
+                in = new Scanner(arquivo, Charset.forName("UTF-8"));
+                System.out.println("Entrada redirecionada de dadosin.txt");
+            } else {
+                in = new Scanner(System.in);
+                System.out.println("Arquivo dadosin.txt não encontrado. Usando entrada padrão.");
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao redirecionar entrada: " + e.getMessage());
+            in = new Scanner(System.in);
+        }
+
+        Locale.setDefault(new Locale("pt", "BR"));
+        in.useLocale(Locale.getDefault());
     }
 }
