@@ -1,0 +1,102 @@
+1
+Festival da Primavera
+Shows ao ar livre com bandas locais
+120
+300
+2025-10-20
+
+1
+Festival de Verão
+Terceira edição com artistas nacionais
+150
+350
+2026-01-20
+
+1
+Mostra de Cinema Independente
+Exibição de curtas e longas com debate
+50
+180
+2025-11-05
+
+1
+Conferência de Tecnologia
+Palestras sobre IA, Cloud e DevOps
+350
+600
+2025-11-05
+
+1
+Feira Gastronômica
+Food trucks e chefs convidados
+40
+500
+2025-12-15
+
+1
+Virada da Inovação
+Talks e networking para startups
+220
+250
+2026-01-10
+
+1
+Encontro de Literatura
+Clube de leitura com autores convidados
+30
+120
+2025-10-18
+
+1
+Sarau de Poesia
+Microfone aberto e performances
+25
+100
+2025-10-18
+
+1
+Réveillon na Praça
+Show da virada com queima de fogos
+0
+2000
+2025-12-31
+
+1
+Noite do Jazz
+Quarteto ao vivo e jam session
+90
+150
+2026-02-14
+
+2
+
+3
+Festival da Primavera
+
+4
+Festival da Primavera
+
+5
+Conferência de Tecnologia
+João da Silva
+12345678900
+30
+s
+
+6
+Conferência de Tecnologia
+12345678900
+
+7
+Conferência de Tecnologia
+
+8
+11
+2025
+
+9
+
+10
+Virada da Inovação
+
+0
