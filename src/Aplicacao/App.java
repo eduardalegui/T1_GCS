@@ -1,8 +1,9 @@
 package Aplicacao;
 
+import Gerenciamento.GerenciaEvento;
 import Dados.Evento;
 import Dados.Participante;
-import Gerenciamento.GerenciaEvento;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -46,7 +47,7 @@ public class App {
                 case 8 -> buscarEventosMesAno();
                 case 9 -> gerenciaEvento.listarEventosOrdenadosPorValor();
                 case 10 -> cancelarEvento();
-                case 0 -> System.out.println("Encerrando... Até mais!");
+                case 0 -> System.out.println("Programa encerrado");
                 default -> System.out.println("Opção inválida. Tente novamente.");
             }
 
