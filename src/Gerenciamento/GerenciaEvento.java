@@ -2,6 +2,7 @@ package Gerenciamento;
 
 import Dados.Evento;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.List;
 import java.time.LocalDate;
 import java.lang.reflect.Array;
@@ -14,14 +15,49 @@ public class GerenciaEvento {
         eventos = new ArrayList<>();
     }
 
+    public void consultarDetalhes(String nome) {
+        Evento e = encontrarEvento(nome);
+        int totalVendidos = e.getGerenciaIngresso().getTotalIngressosVendidos();
+        int vendidosNormais = e.getGerenciaIngresso().getIngressosVendidosNormais();
+        int vendidosEspeciais = e.getGerenciaIngresso().getIngressosVendidosEspeciais();
+
+        System.out.println("\n==============================================");
+        System.out.println("CONSULTA DE DETALHES DO EVENTO: " + e.getNome());
+        System.out.println("==============================================");
+      
+        consultarDetalhesEvento(e);
+
+        System.out.println("C) INGRESSOS VENDIDOS POR TIPO E PERCENTUAIS (sobre o total vendido):");
+        System.out.println("   Total de Ingressos Vendidos: " + totalVendidos);
+
+        if (totalVendidos > 0) {
+            double percNormais = (double) vendidosNormais / totalVendidos * 100;
+            double percEspeciais = (double) vendidosEspeciais / totalVendidos * 100;
+
+            System.out.printf("   - Ingressos Normais Vendidos: %d (%.2f%%)\n", vendidosNormais, percNormais);
+            System.out.printf("   - Ingressos Especiais Vendidos: %d (%.2f%%)\n", vendidosEspeciais, percEspeciais);
+            System.out.printf("   - Ingressos Normais Vendidos: %d (%.2f%%)\n", vendidosNormais);
+            System.out.printf("   - Ingressos Especiais Vendidos: %d (%.2f%%)\n", vendidosEspeciais);
+        } else {
+            System.out.println("   Nenhum ingresso foi vendido ainda.");
+        }
+
+        System.out.println("\nD) PERCENTUAL DE OCUPAÇÃO TOTAL (Vendidos vs Lotação Máxima):");
+        double percOcupacao = 0.0;
+        if (e.getQntIngresso() > 0) {
+            percOcupacao = (double) totalVendidos / e.getQntIngresso() * 100;
+        }
+        System.out.printf("   Ocupação: %d ingressos vendidos / %d lotação (%.2f%%)\n", totalVendidos, e.getQntIngresso(), percOcupacao);
+
+        System.out.println("==============================================");
+    }
     public int calcularIngressoEspecial(Evento evento){ //15% dos ingressos são especiais
         int total = evento.getQntIngresso(); 
         int especial = (int) (total * 0.15); //casting para int, pois o resultado é double
         return especial;
     }
 
-    public Evento consultarDetalhesEvento(String nome){
-        Evento escolhido = encontrarEvento(nome); //o método "encontraEvento" foi feito por outra pessoa
+    public Evento consultarDetalhesEvento(Evento escolhido){
         if (escolhido == null) { //se o evento não for encontrado
             System.out.println("Evento não encontrado.");
         }
