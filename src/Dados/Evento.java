@@ -11,8 +11,7 @@ public class  Evento {
     private String idEvento;
     private LocalDate data;
     private GerenciaIngresso gerenciaIngresso;
-
-
+    
     public Evento(String nome, String descricao, int valor, int qntIngresso, String idEvento, LocalDate data) {
       this.nome = nome;
       this.descricao = descricao;
